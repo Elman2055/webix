@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const ToolBar = () => {
   return (
-    <header className="w-[90%] mx-auto py-5 flex justify-between items-center border-b border-gray-300 ">
+    <header className="w-[90%] mx-auto py-5 flex justify-between items-center border-b border-gray-300 mb-7">
       <NavLink to={"/"} className="hover:text-gray-500 transition-colors duration-300">
         <p className="text-2xl desktop:text-3xl desktop2:text-4xl font-semibold">WEBIX</p>
       </NavLink>
