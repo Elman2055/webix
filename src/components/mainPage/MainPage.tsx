@@ -11,21 +11,23 @@ const MainPage = ({
       {mainProduct.map((el: TProduct) => (
         <div
           key={el.product_id}
-          className="flex justify-between border-b border-gray-300 pb-3 h-[50vh]"
+          className="flex flex-col-reverse w-[500px] max-w-full mx-auto laptop:w-full laptop:flex-row justify-between border-b border-gray-300 pb-10 laptop:pb-3 laptop:h-[50vh]"
         >
-          <div className="w-[45%] bg-gray-100 p-4 flex flex-col justify-between">
-            <div className="">
-              <p className="text-2xl font-medium">{el.title}</p>
-              <p>{el.description}</p>
+          <div className="laptop:w-[45%] bg-gray-100 p-4 flex flex-col justify-between">
+            <div>
+              <p className="text-2xl font-medium desktop2:text-4xl">
+                {el.title}
+              </p>
+              <p className="mb-5 laptop:m-0 desktop2:text-2xl">{el.description}</p>
             </div>
-            <button className="w-full py-3 bg-green-500 text-white hover:bg-green-400 transition-colors duration-300">
+            <button className="w-full py-3 bg-green-500 text-white hover:bg-green-400 transition-colors duration-300 desktop2:text-2xl">
               Посмотреть
             </button>
           </div>
-          <div className="bg-gray-300 w-px"></div>
-          <div className="w-[50%]">
+          <div className="bg-gray-300 w-px mobile:hidden laptop:block"></div>
+          <div className="laptop:w-[50%]">
             <img
-              className="h-full w-full object-cover cursor-pointer"
+              className="mb-5 laptop:m-0 h-full w-full object-cover cursor-pointer"
               src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
               alt="product"
             />
@@ -33,8 +35,10 @@ const MainPage = ({
         </div>
       ))}
       <div className="flex justify-between my-5">
-        <p className="text-3xl font-medium">Шаблоны для здоровья и медицины</p>
-        <button className="bg-gray-100 p-2">Смотреть все</button>
+        <p className="text-3xl font-medium desktop2:text-4xl">
+          Шаблоны для здоровья и медицины
+        </p>
+        <button className="bg-gray-100 p-2 desktop2:text-2xl">Смотреть все</button>
       </div>
       <div className="grid grid-cols-4 gap-5 border-b border-gray-300 pb-4">
         {firstRowProducts.map((el: TProduct) => (
@@ -44,19 +48,27 @@ const MainPage = ({
               src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
               alt="product"
             />
-            <p className="text-lg mt-2">{el.title}</p>
-            <div className="flex gap-3">
+            <p className="text-lg mt-2 desktop2:text-3xl desktop2:font-medium">
+              {el.title}
+            </p>
+            <div className="flex gap-3 desktop2:text-2xl">
               <p className="font-bold">{el.price}₸</p>
-              {el.old_price ? <p className="line-through">{el.old_price}₸</p> : <></>}
+              {el.old_price ? (
+                <p className="line-through">{el.old_price}₸</p>
+              ) : (
+                <></>
+              )}
             </div>
-            <button className="w-full py-2 bg-gray-100 hover:bg-green-500 hover:text-white transition-colors duration-300 mt-3">Купить</button>
+            <button className="w-full py-2 bg-gray-100 hover:bg-green-500 hover:text-white transition-colors duration-300 mt-3 desktop2:text-2xl">
+              Купить
+            </button>
           </div>
         ))}
       </div>
       <div className="bg-gray-100 p-7 my-10">
-        <p className="text-4xl font-medium">Знакомьтесь с нами</p>
-        <img src={mainBg} alt="info background" className="my-5"/>
-        <div className="flex gap-3">
+        <p className="text-4xl font-medium desktop2:text-5xl">Знакомьтесь с нами</p>
+        <img src={mainBg} alt="info background" className="my-5" />
+        <div className="flex gap-3 desktop2:text-2xl">
           <p>
             Мы — ведущий цифровой магазин, специализирующийся на продаже готовых
             сайтов. Наша миссия — предоставить вам качественные, профессионально
@@ -72,8 +84,8 @@ const MainPage = ({
         </div>
       </div>
       <div className="flex justify-between my-5 border-t border-gray-300 pt-5">
-        <p className="text-3xl font-medium">Сайты для игровых проектов</p>
-        <button className="bg-gray-100 p-2">Смотреть все</button>
+        <p className="text-3xl font-medium desktop2:text-4xl">Сайты для игровых проектов</p>
+        <button className="bg-gray-100 p-2 desktop2:text-2xl">Смотреть все</button>
       </div>
       <div className="grid grid-cols-4 gap-5 border-b border-gray-300 pb-4 mb-10">
         {secondRowProducts.map((el: TProduct) => (
@@ -83,12 +95,18 @@ const MainPage = ({
               src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
               alt="product"
             />
-            <p className="text-lg mt-2">{el.title}</p>
-            <div className="flex gap-3">
+            <p className="text-lg mt-2 desktop2:text-3xl desktop2:font-medium">{el.title}</p>
+            <div className="flex gap-3 desktop2:text-2xl">
               <p className="font-bold">{el.price}₸</p>
-              {el.old_price ? <p className="line-through">{el.old_price}₸</p> : <></>}
+              {el.old_price ? (
+                <p className="line-through">{el.old_price}₸</p>
+              ) : (
+                <></>
+              )}
             </div>
-            <button className="w-full py-2 bg-gray-100 hover:bg-green-500 hover:text-white transition-colors duration-300 mt-3">Купить</button>
+            <button className="w-full py-2 bg-gray-100 hover:bg-green-500 hover:text-white transition-colors duration-300 mt-3 desktop2:text-2xl">
+              Купить
+            </button>
           </div>
         ))}
       </div>
