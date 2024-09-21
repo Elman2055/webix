@@ -1,5 +1,6 @@
 import { TMain, TProduct } from "../../types/types.data";
 import mainBg from "../../../public/mainBg.png";
+import mobileMainBg from "../../../public/mobileMainBg.png";
 
 const MainPage = ({
   mainProduct,
@@ -18,7 +19,9 @@ const MainPage = ({
               <p className="text-2xl font-medium desktop2:text-4xl">
                 {el.title}
               </p>
-              <p className="mb-5 laptop:m-0 desktop2:text-2xl">{el.description}</p>
+              <p className="mb-5 laptop:m-0 desktop2:text-2xl">
+                {el.description}
+              </p>
             </div>
             <button className="w-full py-3 bg-green-500 text-white hover:bg-green-400 transition-colors duration-300 desktop2:text-2xl">
               Посмотреть
@@ -38,7 +41,9 @@ const MainPage = ({
         <p className="text-2xl laptop:text-3xl font-medium desktop2:text-4xl">
           Шаблоны для здоровья и медицины
         </p>
-        <button className="hidden laptop:block bg-gray-100 p-2 desktop2:text-2xl">Смотреть все</button>
+        <button className="hidden laptop:block bg-gray-100 p-2 desktop2:text-2xl hover:bg-gray-200 hover:text-slate-500 transition-colors duration-300">
+          Смотреть все
+        </button>
       </div>
       <div className="grid w-[500px] max-w-full mx-auto grid-cols-1 laptop:w-full laptop:m-0 laptop:grid-cols-4 gap-5 border-b border-gray-300 pb-4">
         {firstRowProducts.map((el: TProduct) => (
@@ -64,11 +69,27 @@ const MainPage = ({
             </button>
           </div>
         ))}
+        <div className="flex justify-center">
+          <button className="bg-gray-100 py-2 px-4 hover:bg-gray-200 hover:text-slate-500 transition-colors duration-300 laptop:hidden">
+            Смотреть все
+          </button>
+        </div>
       </div>
-      <div className="bg-gray-100 p-7 my-10">
-        <p className="text-4xl font-medium desktop2:text-5xl">Знакомьтесь с нами</p>
-        <img src={mainBg} alt="info background" className="my-5" />
-        <div className="flex gap-3 desktop2:text-2xl">
+      <div className="w-[500px] max-w-full mx-auto laptop:w-full laptop:bg-gray-100 laptop:p-7 my-10">
+        <p className="mb-5 laptop:m-0 text-4xl font-medium desktop2:text-5xl">
+          Знакомьтесь с нами
+        </p>
+        <img
+          src={mainBg}
+          alt="info background"
+          className="hidden laptop:block my-5 object-cover"
+        />
+        <img
+          src={mobileMainBg}
+          alt="info background"
+          className="mb-5 laptop:hidden"
+        />
+        <div className="flex flex-col gap-3 desktop2:text-2xl">
           <p>
             Мы — ведущий цифровой магазин, специализирующийся на продаже готовых
             сайтов. Наша миссия — предоставить вам качественные, профессионально
@@ -83,11 +104,15 @@ const MainPage = ({
           </p>
         </div>
       </div>
-      <div className="flex justify-between my-5 border-t border-gray-300 pt-5">
-        <p className="text-3xl font-medium desktop2:text-4xl">Сайты для игровых проектов</p>
-        <button className="bg-gray-100 p-2 desktop2:text-2xl">Смотреть все</button>
+      <div className="w-[500px] max-w-full mx-auto laptop:w-full m-0 flex justify-start laptop:justify-between my-5">
+        <p className="text-2xl laptop:text-3xl font-medium desktop2:text-4xl">
+          Сайты для игровых проектов
+        </p>
+        <button className="hidden laptop:block bg-gray-100 p-2 desktop2:text-2xl hover:bg-gray-200 hover:text-slate-500 transition-colors duration-300">
+          Смотреть все
+        </button>
       </div>
-      <div className="grid grid-cols-4 gap-5 border-b border-gray-300 pb-4 mb-10">
+      <div className="grid w-[500px] max-w-full mx-auto mb-5 grid-cols-1 laptop:w-full laptop:m-0 laptop:grid-cols-4 gap-5 border-b border-gray-300 pb-4">
         {secondRowProducts.map((el: TProduct) => (
           <div key={el.product_id} className="flex flex-col justify-between">
             <img
@@ -95,7 +120,9 @@ const MainPage = ({
               src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
               alt="product"
             />
-            <p className="text-lg mt-2 desktop2:text-3xl desktop2:font-medium">{el.title}</p>
+            <p className="text-lg mt-2 desktop2:text-3xl desktop2:font-medium">
+              {el.title}
+            </p>
             <div className="flex gap-3 desktop2:text-2xl">
               <p className="font-bold">{el.price}₸</p>
               {el.old_price ? (
@@ -109,6 +136,11 @@ const MainPage = ({
             </button>
           </div>
         ))}
+        <div className="flex justify-center">
+          <button className="bg-gray-100 py-2 px-4 laptop:hidden hover:bg-gray-200 hover:text-slate-500 transition-colors duration-300">
+            Смотреть все
+          </button>
+        </div>
       </div>
     </div>
   );
