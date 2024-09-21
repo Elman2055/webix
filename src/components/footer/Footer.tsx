@@ -2,8 +2,31 @@ import footerBg from "../../../public/FooterBg.png";
 import telegram from "../../../public/telegram.svg";
 import instagram from "../../../public/instagram.svg";
 import whatsapp from "../../../public/whatsapp.svg";
+import { ChangeEvent, useState } from "react";
 
 const Footer = () => {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    tel: "",
+    email: "",
+    commit: "",
+  });
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  const getInputsChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUserInfo((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const isFormValid = () => {
+    return (
+      userInfo.name.trim() !== "" &&
+      userInfo.tel.trim() !== "" &&
+      userInfo.email.trim() !== "" &&
+      isChecked
+    );
+  };
+
   return (
     <div className="w-[90%] mx-auto">
       <div className="w-full flex justify-between pb-5 border-b border-b-gray-300 mb-10">
@@ -15,30 +38,23 @@ const Footer = () => {
             Ваше мнение важно для нас! Оставьте вопросы или предложения, и мы
             свяжемся с вами как можно скорее, чтобы помочь вам
           </p>
-          <input
-            type="text"
-            className="bg-gray-100 outline-none p-[2%] mt-2 desktop2:placeholder:text-2xl desktop2:text-2xl"
-            placeholder="*ФИО"
-          />
-          <input
-            type="tel"
-            className="bg-gray-100 outline-none p-[2%] mt-2 desktop2:placeholder:text-2xl desktop2:text-2xl"
-            placeholder="*Телефон"
-          />
-          <input
-            type="email"
-            className="bg-gray-100 outline-none p-[2%] mt-2 desktop2:placeholder:text-2xl desktop2:text-2xl"
-            placeholder="*Email"
-          />
-          <input
-            type="text"
-            className="bg-gray-100 outline-none p-[2%] pb-20 mt-2 desktop2:placeholder:text-2xl desktop2:text-2xl"
-            placeholder="Комментарий"
-          />
+          {(["name", "tel", "email", "commit"]  as Array<keyof typeof userInfo>).map((el) => (
+            <input
+              key={el}
+              type={el === "tel" ? "tel" : el === "email" ? "email" : "text"}
+              placeholder= {el === "name" ? "*ФИО" : el === "tel" ? "*Телефон" : el === "email" ? "*Email" : "Комментарий"}
+              name={el}
+              className={`bg-gray-100 outline-none p-[2%] mt-2 desktop2:placeholder:text-2xl desktop2:text-2xl ${el === 'commit' ? 'pb-20' : ''}`}
+              value={userInfo[el]}
+              onChange={getInputsChange}
+            />
+          ))}
           <div className="flex my-5 items-center">
             <input
               type="checkbox"
               id="custom-checkbox"
+              checked={isChecked}
+              onChange={() => setIsChecked(!isChecked)}
               className="w-7 h-7 text-blue-600 bg-green-100 border-gray-300 rounded focus:ring-blue-500"
             />
             <label
@@ -49,7 +65,12 @@ const Footer = () => {
               конфиденциальности
             </label>
           </div>
-          <button className="bg-gray-100 p-3 desktop2:text-2xl">
+          <button
+            className={`bg-gray-100 p-3 desktop2:text-2xl ${
+              isFormValid() ? "opacity-100" : "opacity-50 pointer-events-none"
+            }`}
+            disabled={!isFormValid()}
+          >
             Отправить
           </button>
         </div>
@@ -79,10 +100,16 @@ const Footer = () => {
       </div>
 
       <div className="flex justify-between my-5">
-        <p>© Copyright 2024 Webix. Все права защищены.</p>
+        <p className="text-sm desktop:text-base desktop2:text-xl">
+          © Copyright 2024 Webix. Все права защищены.
+        </p>
         <div className="flex gap-5">
-          <p>Политика конфиденциальности</p>
-          <p>Публичная Оферта</p>
+          <p className="text-sm desktop:text-base desktop2:text-xl">
+            Политика конфиденциальности
+          </p>
+          <p className="text-sm desktop:text-base desktop2:text-xl">
+            Публичная Оферта
+          </p>
         </div>
       </div>
     </div>
