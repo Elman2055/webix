@@ -32,6 +32,27 @@ const MainPage = ({
           </div>
         </div>
       ))}
+      <div className="flex justify-between my-5">
+        <p className="text-3xl font-medium">Шаблоны для здоровья и медицины</p>
+        <button className="bg-gray-100 p-2">Смотреть все</button>
+      </div>
+      <div className="grid grid-cols-4 gap-5">
+        {firstRowProducts.map((el: TProduct) => (
+          <div key={el.product_id} className="flex flex-col justify-between">
+            <img
+            className="cursor-pointer"
+              src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
+              alt="product"
+            />
+            <p className="text-lg mt-2">{el.title}</p>
+            <div className="flex gap-3">
+              <p className="font-bold">{el.price}₸</p>
+              {el.old_price ? <p className="line-through">{el.old_price}₸</p> : <></>}
+            </div>
+            <button className="w-full py-2 bg-gray-100 hover:bg-green-500 hover:text-white transition-colors duration-300 mt-3">Купить</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
