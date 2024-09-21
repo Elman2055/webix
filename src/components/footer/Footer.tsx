@@ -29,8 +29,8 @@ const Footer = () => {
 
   return (
     <div className="w-[90%] mx-auto">
-      <div className="w-full flex justify-between pb-5 border-b border-b-gray-300 mb-10">
-        <div className="w-[40%] flex flex-col justify-between">
+      <div className="w-full flex justify-between pb-5 laptop:border-b border-b-gray-300 mb-10">
+        <div className="mobile:w-[500px] mobile: max-w-full mobile:mx-auto laptop:w-[40%] flex flex-col justify-between border-b border-gray-300 pb-10 laptop:border-none laptop:p-0">
           <p className="text-2xl font-medium mb-3 desktop2:text-4xl">
             Ваши мысли, наш ответ
           </p>
@@ -66,16 +66,16 @@ const Footer = () => {
             </label>
           </div>
           <button
-            className={`bg-gray-100 p-3 desktop2:text-2xl ${
-              isFormValid() ? "opacity-100" : "opacity-50 pointer-events-none"
+            className={`p-3 desktop2:text-2xl ${
+              isFormValid() ? "bg-green-500 text-white" : "bg-gray-100 pointer-events-none"
             }`}
             disabled={!isFormValid()}
           >
             Отправить
           </button>
         </div>
-        <div className="w-px bg-gray-300 "></div>
-        <div className="w-[55%]">
+        <div className="mobile:hidden laptop:block w-px bg-gray-300"></div>
+        <div className="mobile:hidden laptop:block w-[55%]">
           <img
             src={footerBg}
             alt="background info"
@@ -84,33 +84,36 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-gray-300 py-3 px-5 flex justify-between items-center">
-        <p className="text-5xl font-bold desktop2:text-7xl">WEBIX</p>
-        <p className="laptop:text-xl desktop:text-2xl desktop2:text-4xl font-medium">
+      <div className="laptop:bg-gray-300 flex flex-col mobile:items-start laptop:flex-row laptop:items-center justify-between w-[500px] max-w-full mx-auto laptop:py-3 laptop:px-5 laptop:w-auto">
+        <p className="text-4xl font-bold laptop:text-5xl desktop2:text-7xl">WEBIX</p>
+        <p className="text-xl desktop:text-2xl desktop2:text-4xl font-medium">
           webix.office@gmail.com
         </p>
-        <p className="laptop:text-xl desktop:text-2xl desktop2:text-4xl font-medium">
+        <p className="mb-3 laptop:m-0 text-xl desktop:text-2xl desktop2:text-4xl font-medium">
           7 (725) 384-9106
         </p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mb-5 laptop:m-0">
           <img src={telegram} alt="telegram" className="cursor-pointer" />
           <img src={instagram} alt="instagram" className="cursor-pointer" />
           <img src={whatsapp} alt="whatsapp" className="cursor-pointer" />
         </div>
       </div>
 
-      <div className="flex justify-between my-5">
-        <p className="text-sm desktop:text-base desktop2:text-xl">
+      <div className="text-center flex-col laptop:flex laptop:flex-row justify-between my-5">
+        <p className="mobile:hidden laptop:block text-sm desktop:text-base desktop2:text-xl">
           © Copyright 2024 Webix. Все права защищены.
         </p>
-        <div className="flex gap-5">
+        <div className="flex-col laptop:flex laptop:flex-row gap-5">
           <p className="text-sm desktop:text-base desktop2:text-xl">
             Политика конфиденциальности
           </p>
-          <p className="text-sm desktop:text-base desktop2:text-xl">
+          <p className="my-2 laptop:m-0 text-sm desktop:text-base desktop2:text-xl">
             Публичная Оферта
           </p>
         </div>
+        <p className="block laptop:hidden text-sm desktop:text-base desktop2:text-xl">
+          © Copyright 2024 Webix. Все права защищены.
+        </p>
       </div>
     </div>
   );
