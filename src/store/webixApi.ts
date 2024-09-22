@@ -13,7 +13,10 @@ export const webixApi = createApi({
         body: { category: body },
       }),
     }),
+    getProduct: buider.query({
+      query: (id: number) => `/products/get-product/${id}`,
+    }),
   }),
 });
 
-export const { useGetProductsMutation } = webixApi;
+export const { useGetProductsMutation, useGetProductQuery } = webixApi;

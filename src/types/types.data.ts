@@ -13,3 +13,14 @@ export type TMain = {
   firstRowProducts: TProduct[];
   secondRowProducts: TProduct[];
 };
+
+export type TMainRowProducts = {
+  title: string;
+  rowProducts: TProduct[];
+  isMainBtns?: boolean;
+};
+
+export type TProductPage = {
+  product: TProduct[];
+  rowProducts: TProduct[];
+};
