@@ -29,7 +29,7 @@ const Footer = () => {
 
   return (
     <div className="w-[90%] mx-auto">
-      <div className="w-full flex justify-between pb-5 laptop:border-b border-b-gray-300 mb-10">
+      <div className="w-full flex justify-between pb-5 laptop:border-b border-b-gray-300 my-10">
         <div className="mobile:w-[500px] mobile:max-w-full mx-auto laptop:m-0 laptop:w-[40%] flex flex-col justify-between border-b border-gray-300 pb-10 laptop:border-none laptop:p-0">
           <p className="text-2xl font-medium mb-3 desktop2:text-4xl">
             Ваши мысли, наш ответ
