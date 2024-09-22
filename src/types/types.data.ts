@@ -24,3 +24,9 @@ export type TProductPage = {
   product: TProduct[];
   rowProducts: TProduct[];
 };
+
+export type TCategories = {
+  title: string;
+  quantity: number;
+  products: TProduct[];
+};
