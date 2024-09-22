@@ -1,4 +1,5 @@
 import { TProduct, TProductPage } from "../../types/types.data";
+import ProductsCards from "../productsCards/ProductsCards";
 
 const ProductPage = ({ product, rowProducts }: TProductPage) => {
   return (
@@ -34,6 +35,10 @@ const ProductPage = ({ product, rowProducts }: TProductPage) => {
           </div>
         </div>
       ))}
+      <ProductsCards
+        title="Продолжим с того, что вас заинтересовало"
+        rowProducts={rowProducts}
+      />
     </div>
   );
 };
