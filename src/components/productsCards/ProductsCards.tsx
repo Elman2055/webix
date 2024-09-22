@@ -1,10 +1,13 @@
 import { TMainRowProducts, TProduct } from "../../types/types.data";
+import { useNavigate } from "react-router-dom";
 
 const ProductsCards = ({
   title,
   rowProducts,
   isMainBtns,
 }: TMainRowProducts) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-[500px] max-w-full mx-auto laptop:w-full m-0 flex justify-start laptop:justify-between my-5">
@@ -23,6 +26,7 @@ const ProductsCards = ({
             <img
               className="cursor-pointer object-cover"
               src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
+              onClick={() => navigate({pathname: `/product/${el.product_id}`})}
               alt="product"
             />
             <p className="text-lg mt-2 desktop2:text-3xl desktop2:font-medium">

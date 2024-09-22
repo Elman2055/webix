@@ -20,6 +20,7 @@ const MainPageContainer = () => {
 
   useEffect(() => {
     getProducts();
+    window.scrollTo(0, 0);
   }, []);
 
   return (

@@ -25,6 +25,7 @@ const ProductPageContainer = () => {
   useEffect(() => {
     if (data) setProduct(data.product);
     getRowProducts();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [data]);
 
   return <ProductPage product={product} rowProducts={rowProducts} />;

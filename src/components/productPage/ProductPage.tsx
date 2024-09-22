@@ -3,7 +3,7 @@ import ProductsCards from "../productsCards/ProductsCards";
 
 const ProductPage = ({ product, rowProducts }: TProductPage) => {
   return (
-    <div className="w-[500px] max-w-full laptop:w-[90%] mx-auto ">
+    <div className="w-[500px] max-w-[90%] laptop:w-[90%] mx-auto ">
       {product.map((el: TProduct) => (
         <div
           key={el.product_id}
@@ -29,7 +29,7 @@ const ProductPage = ({ product, rowProducts }: TProductPage) => {
               </div>
               <p className="desktop:text-2xl">{el.description}</p>
             </div>
-            <button className="w-full bg-green-500 mt-5 laptop:m-0 py-3 desktop2:text-2xl">
+            <button className="w-full bg-green-500 hover:bg-green-400 hover:text-white transition-colors duration-300 mt-5 laptop:m-0 py-3 desktop2:text-2xl">
               Купить
             </button>
           </div>

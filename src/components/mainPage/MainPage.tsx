@@ -2,12 +2,15 @@ import { TMain, TProduct } from "../../types/types.data";
 import mainBg from "../../../public/mainBg.png";
 import mobileMainBg from "../../../public/mobileMainBg.png";
 import ProductsCards from "../productsCards/ProductsCards";
+import { useNavigate } from "react-router-dom";
 
 const MainPage = ({
   mainProduct,
   firstRowProducts,
   secondRowProducts,
 }: TMain) => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-[90%] mx-auto">
       {mainProduct.map((el: TProduct) => (
@@ -24,7 +27,12 @@ const MainPage = ({
                 {el.description}
               </p>
             </div>
-            <button className="w-full py-3 bg-green-500 text-white hover:bg-green-400 transition-colors duration-300 desktop2:text-2xl">
+            <button
+              className="w-full py-3 bg-green-500 text-white hover:bg-green-400 transition-colors duration-300 desktop2:text-2xl"
+              onClick={() =>
+                navigate({ pathname: `/product/${el.product_id}` })
+              }
+            >
               Посмотреть
             </button>
           </div>
@@ -33,6 +41,7 @@ const MainPage = ({
             <img
               className="mb-5 laptop:m-0 h-full w-full object-cover cursor-pointer"
               src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
+              onClick={() => navigate({pathname: `/product/${el.product_id}`})}
               alt="product"
             />
           </div>
