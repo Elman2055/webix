@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { TCategories } from "../../types/types.data";
 import ProductsCards from "../productsCards/ProductsCards";
 
 const Categories = ({ title, quantity, products }: TCategories) => {
+  const [activeButton, setActiveButton] = useState<number | null>(null);
+
   return (
     <div className="w-[500px] max-w-[90%] laptop:w-[90%] mx-auto">
       <div className="flex flex-col laptop:flex-row gap-5">
@@ -23,10 +26,11 @@ const Categories = ({ title, quantity, products }: TCategories) => {
             Выбрать по:
           </p>
           <div className="w-[500px] max-w-full flex flex-wrap gap-3">
-            {["По популярности", "По возрастанию цены", "По убывании цены", "Новинки", "Скидки",].map((el) => (
+            {["По популярности", "По возрастанию цены", "По убывании цены", "Новинки", "Скидки",].map((el, index) => (
               <button
-                key={el}
-                className="bg-gray-100 p-3 text-[15px] laptop:text-lg hover:bg-green-500 hover:text-white transition-colors duration-300 desktop2:text-2xl"
+                key={index}
+                onClick={() => setActiveButton(index)}
+                className={`bg-gray-100 p-3 text-[15px] laptop:text-lg hover:bg-green-500 hover:text-white transition-colors duration-300 desktop2:text-2xl ${activeButton === index ? 'bg-green-500 text-white' : ''}`}
               >
                 {el}
               </button>
