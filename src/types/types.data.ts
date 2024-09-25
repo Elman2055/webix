@@ -18,6 +18,7 @@ export type TMainRowProducts = {
   title: string;
   rowProducts: TProduct[];
   isMainBtns?: boolean;
+  border?: boolean;
 };
 
 export type TProductPage = {
@@ -29,4 +30,7 @@ export type TCategories = {
   title: string;
   quantity: number;
   products: TProduct[];
+  totalPages: number;
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
 };

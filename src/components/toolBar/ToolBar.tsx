@@ -30,7 +30,7 @@ const ToolBar = () => {
 
         <nav className="desktop:text-lg desktop2:text-2xl flex justify-between w-[60%] mobile:hidden laptop:flex">
           {["Финансы", "Утилиты", "Здоровье", "Игры", "Социальные сети", "Путешествия"].map((el: string) => (
-            <NavLink key={el} to={"/"} className="hover:text-gray-500 transition-colors duration-300">
+            <NavLink key={el} to={`/categories/${el}`} className="hover:text-gray-500 transition-colors duration-300">
               <p>{el}</p>
             </NavLink>
           ))}
@@ -59,7 +59,7 @@ const ToolBar = () => {
           {["Финансы", "Утилиты", "Здоровье", "Игры", "Социальные сети", "Путешествия", "О нас"].map((el: string) => (
             <NavLink
               key={el}
-              to={"/"}
+              to={`/categories/${el}`}
               className="text-xl font-medium hover:text-gray-500 transition-colors duration-300 mb-3 border-b border-gray-300 py-2"
               onClick={() => setIsSidebarOpen(false)}
             >

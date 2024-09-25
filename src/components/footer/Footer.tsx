@@ -2,6 +2,7 @@ import footerBg from "../../../public/FooterBg.png";
 import telegram from "../../../public/telegram.svg";
 import instagram from "../../../public/instagram.svg";
 import whatsapp from "../../../public/whatsapp.svg";
+import { IoMdCheckmark } from "react-icons/io";
 import { ChangeEvent, useState } from "react";
 
 const Footer = () => {
@@ -50,17 +51,10 @@ const Footer = () => {
             />
           ))}
           <div className="flex my-5 items-center">
-            <input
-              type="checkbox"
-              id="custom-checkbox"
-              checked={isChecked}
-              onChange={() => setIsChecked(!isChecked)}
-              className="w-7 h-7 text-blue-600 bg-green-100 border-gray-300 rounded focus:ring-blue-500"
-            />
-            <label
-              htmlFor="custom-checkbox"
-              className="ml-4 text-sm desktop2:text-lg"
-            >
+            <button onClick={() => setIsChecked(!isChecked)} className={ isChecked ? 'bg-[#44CD8D] w-7 h-7 rounded-lg flex justify-center items-center hover:opacity-50' : 'border-[2.5px] border-[#44CD8D] w-7 h-7 rounded-lg flex justify-center items-center hover:opacity-50' }>
+                <IoMdCheckmark className='text-white text-xl'/>
+            </button>
+            <label className="ml-4 text-sm desktop2:text-lg">
               Нажимая «Отправить», вы соглашаетесь с нашими Политикой
               конфиденциальности
             </label>

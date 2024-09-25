@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MainPage from "../../components/mainPage/MainPage";
 import { useGetProductsMutation } from "../../store/webixApi";
 import { TProduct } from "../../types/types.data";
+import Loader from "../../components/loader/Loader";
 
 const MainPageContainer = () => {
   const [products, { isLoading }] = useGetProductsMutation();
@@ -24,11 +25,14 @@ const MainPageContainer = () => {
   }, []);
 
   return (
-    <MainPage
-      mainProduct={mainProduct}
-      firstRowProducts={firstRowProducts}
-      secondRowProducts={secondRowProducts}
-    />
+    <>
+      <Loader isOpen={isLoading} />
+      <MainPage
+        mainProduct={mainProduct}
+        firstRowProducts={firstRowProducts}
+        secondRowProducts={secondRowProducts}
+      />
+    </>
   );
 };
 

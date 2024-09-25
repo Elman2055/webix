@@ -6,6 +6,7 @@ import {
 } from "../../store/webixApi";
 import { TProduct } from "../../types/types.data";
 import { useParams } from "react-router-dom";
+import Loader from "../../components/loader/Loader";
 
 const ProductPageContainer = () => {
   const { id } = useParams();
@@ -28,7 +29,12 @@ const ProductPageContainer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [data]);
 
-  return <ProductPage product={product} rowProducts={rowProducts} />;
+  return (
+    <>
+      <Loader isOpen={isLoading || productLoader} />
+      <ProductPage product={product} rowProducts={rowProducts} />
+    </>
+  );
 };
 
 export default ProductPageContainer;

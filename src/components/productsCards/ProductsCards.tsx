@@ -5,6 +5,7 @@ const ProductsCards = ({
   title,
   rowProducts,
   isMainBtns,
+  border
 }: TMainRowProducts) => {
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ const ProductsCards = ({
           </button>
         )}
       </div>
-      <div className="grid w-[500px] max-w-full mx-auto grid-cols-1 laptop:w-full laptop:mb-5 laptop:grid-cols-4 gap-5 border-b border-gray-300 pb-4">
+      <div className={`grid w-[500px] max-w-full mx-auto grid-cols-1 laptop:w-full laptop:mb-5 laptop:grid-cols-4 gap-5 ${border ? "" : 'border-b border-gray-300'} pb-4`}>
         {rowProducts.map((el: TProduct) => (
           <div key={el.product_id} className="flex flex-col justify-between">
             <img
