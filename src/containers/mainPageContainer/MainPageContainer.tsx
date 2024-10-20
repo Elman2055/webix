@@ -15,7 +15,7 @@ const MainPageContainer = () => {
     if (data) {
       setMainProduct(data.items.slice(0, 1));
       setFirstRowProducts(data.items.slice(1, 5));
-      setSecondRowProducts(data.items.slice(5, 9));
+      setSecondRowProducts(data.items.slice(2, 6));
     }
   };
 

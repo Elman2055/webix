@@ -20,7 +20,7 @@ const MainPage = ({
         >
           <div className="laptop:w-[45%] bg-gray-100 p-4 flex flex-col justify-between">
             <div>
-              <p className="text-2xl font-medium desktop2:text-4xl">
+              <p className="text-2xl font-medium desktop2:text-4xl mb-3">
                 {el.title}
               </p>
               <p className="mb-5 laptop:m-0 desktop2:text-2xl">
@@ -40,7 +40,7 @@ const MainPage = ({
           <div className="laptop:w-[50%]">
             <img
               className="mb-5 laptop:m-0 h-full w-full object-cover cursor-pointer"
-              src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
+              src={`https://webix.webshop2.kz/api/product/previewImage/${el.image_preview}`}
               onClick={() => navigate({pathname: `/product/${el.product_id}`})}
               alt="product"
             />

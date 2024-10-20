@@ -26,7 +26,7 @@ const ProductsCards = ({
           <div key={el.product_id} className="flex flex-col justify-between">
             <img
               className="cursor-pointer object-cover"
-              src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
+              src={`https://webix.webshop2.kz/api/product/previewImage/${el.image_preview}`}
               onClick={() => navigate({pathname: `/product/${el.product_id}`})}
               alt="product"
             />

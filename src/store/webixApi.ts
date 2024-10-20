@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const API_BASE_URL = "https://logohub.kz/api";
+const API_BASE_URL = "https://webix.webshop2.kz/api";
 
 export const webixApi = createApi({
   reducerPath: "webixApi",
@@ -8,13 +8,13 @@ export const webixApi = createApi({
   endpoints: (buider) => ({
     getProducts: buider.mutation({
       query: (body: string) => ({
-        url: "/products/products",
+        url: "/product/products",
         method: "POST",
         body: { category: body },
       }),
     }),
     getProduct: buider.query({
-      query: (id: number) => `/products/get-product/${id}`,
+      query: (id: number) => `/product/get-product/${id}`,
     }),
   }),
 });

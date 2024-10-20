@@ -9,7 +9,7 @@ const ProductPage = ({ product, rowProducts }: TProductPage) => {
           key={el.product_id}
           className="laptop:h-[65vh] flex flex-col-reverse laptop:flex-row justify-between pb-5 border-b border-gray-300 mb-10"
         >
-          <div className="laptop:h-[50vh] laptop:w-[40%] laptop:bg-gray-100 laptop:p-5 flex flex-col justify-between">
+          <div className="laptop:w-[40%] laptop:bg-gray-100 laptop:p-5 flex flex-col justify-between overflow-auto">
             <div>
               <p className="desktop2:text-2xl">{el.category}</p>
               <p className="text-2xl font-medium desktop2:text-4xl mb-3">
@@ -27,7 +27,7 @@ const ProductPage = ({ product, rowProducts }: TProductPage) => {
                   <></>
                 )}
               </div>
-              <p className="desktop:text-2xl">{el.description}</p>
+              <p className="desktop:text-xl desktop2:text-2xl mb-5">{el.description}</p>
             </div>
             <button className="w-full bg-green-500 hover:bg-green-400 hover:text-white transition-colors duration-300 mt-5 laptop:m-0 py-3 desktop2:text-2xl">
               Купить
@@ -36,7 +36,7 @@ const ProductPage = ({ product, rowProducts }: TProductPage) => {
           <div className="h-full w-px bg-gray-300"></div>
           <div className="laptop:w-[55%]">
             <img
-              src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
+              src={`https://webix.webshop2.kz/api/product/previewImage/${el.image_preview}`}
               alt="product"
               className="h-full w-full object-cover"
             />

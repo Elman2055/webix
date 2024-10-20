@@ -56,7 +56,7 @@ const ToolBar = () => {
         onClick={() => setIsSidebarOpen(false)}
       >
         <div className="w-[90%] mx-auto mt-20 flex flex-col">
-          {["Финансы", "Утилиты", "Здоровье", "Игры", "Социальные сети", "Путешествия", "О нас"].map((el: string) => (
+          {["Финансы", "Утилиты", "Здоровье", "Игры", "Социальные сети", "Путешествия"].map((el: string) => (
             <NavLink
               key={el}
               to={`/categories/${el}`}

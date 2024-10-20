@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
           <button
             className={`p-3 desktop2:text-2xl ${
-              isFormValid() ? "bg-green-500 text-white" : "bg-gray-100 pointer-events-none"
+              isFormValid() ? "bg-green-500 text-white" : "bg-gray-100 cursor-not-allowed"
             }`}
             disabled={!isFormValid()}
           >
